@@ -1,10 +1,62 @@
 import React from 'react';
 import './SideMenu.css'
+import ListSubheader from '@material-ui/core/ListSubheader';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import TemaPrincipal from '../../theme/temaPrincipal'
+import PeopleAlt from '@material-ui/icons/PeopleAlt';
+import Phone from '@material-ui/icons/Phone';
+import Event from '@material-ui/icons/Event';
 
 export default () => {
+
+  const contatosHandler = () => {
+    alert('Mostrar Crud contatos');
+  }
+
+  const telefonesHandler = () => {
+    alert('Mostrar crud telefones');
+  }
+
+  const compromissosHandler = () => {
+    alert('Mostrar crud Compromissos');
+  }
+
+
   return (
     <div className='side-menu'>
-      <h3>Side Menu</h3>
+      <List style={{ height: '100vh', backgroundColor: TemaPrincipal.palette.primary.dark }}
+        component="nav"
+        aria-labelledby="nested-list-subheader"
+        subheader={
+          <ListSubheader style={{ borderBottom: '5px solid white', color: 'white' }} component="div" id="nested-list-subheader">
+            AÇÕES
+          </ListSubheader>
+        }>
+        <ListItem onClick={contatosHandler} button style={{ backgroundColor: TemaPrincipal.palette.primary.dark, color: TemaPrincipal.palette.primary.light }}>
+          <ListItemIcon>
+            <PeopleAlt style={{ color: TemaPrincipal.palette.primary.light }} />
+          </ListItemIcon>
+          <ListItemText primary="Contatos" />
+        </ListItem>
+        <ListItem onClick={telefonesHandler} button style={{ backgroundColor: TemaPrincipal.palette.primary.dark, color: TemaPrincipal.palette.primary.light }}>
+          <ListItemIcon>
+            <Phone style={{ color: TemaPrincipal.palette.primary.light }} />
+          </ListItemIcon>
+          <ListItemText primary="Telefones" />
+        </ListItem>
+        <ListItem onClick={compromissosHandler} button style={{ backgroundColor: TemaPrincipal.palette.primary.dark, color: TemaPrincipal.palette.primary.light }}>
+          <ListItemIcon>
+            <Event style={{ color: TemaPrincipal.palette.primary.light }} />
+          </ListItemIcon>
+          <ListItemText primary="Compromissos" />
+        </ListItem>
+
+
+      </List>
+
     </div>
 
   )

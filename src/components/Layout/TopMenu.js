@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './TopMenu.css'
 import { Button, Menu, MenuItem } from '@material-ui/core';
 import Dehaze from '@material-ui/icons/Dehaze'
+import MoreVert from '@material-ui/icons/MoreVert'
 
 export default () => {
   const [anchorEl, setAnchorEl] = useState(0);
@@ -28,8 +29,8 @@ export default () => {
   return (
     <div className="top-menu">
       <div>
-        <Button style={{ backgroundColor: 'rgb(53, 49, 49)', margin: '5px' }} variant="contained" color="primary" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-          <Dehaze fontSize="small"></Dehaze>
+        <Button size="small" style={{ backgroundColor: 'rgb(255, 255, 255)', margin: '5px' }} variant="text" color="default" aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
+          <MoreVert fontSize="small"></MoreVert>
         </Button>
         <Menu
           id="simple-menu"
