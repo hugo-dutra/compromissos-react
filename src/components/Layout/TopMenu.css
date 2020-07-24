@@ -1,0 +1,10 @@
+.top-menu {
+  display: flex;
+  background-color: rgb(65, 61, 61);
+  flex-direction: row;
+  justify-content: flex-end;
+  -webkit-box-shadow: 4px 0px 5px 1px rgba(0, 0, 0, 0.50);
+  -moz-box-shadow: 4px 0px 5px 1px rgba(0, 0, 0, 0.50);
+  box-shadow: 2px 0px 2px 1px rgba(0, 0, 0, 0.50);
+  color: white;
+}

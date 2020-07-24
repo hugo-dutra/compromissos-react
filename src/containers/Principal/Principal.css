@@ -1,0 +1,22 @@
+.principal {
+  display: flex;
+  flex-direction: column;
+}
+
+.col {
+  display: flex;
+  flex-direction: row;
+}
+
+.side {
+  display: flex;
+  flex: 3;
+  width: 25%;
+  z-index: 1000;
+}
+
+.content {
+  display: flex;
+  flex: 7;
+  z-index: 999;
+}
