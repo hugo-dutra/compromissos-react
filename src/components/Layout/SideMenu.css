@@ -1,15 +1,9 @@
 .side-menu {
   display: flex;
   flex-direction: column;
-  background-color: rgb(216, 224, 216);
   width: 20vw;
-  height: 90vh;
+  height: 97vh;
   -webkit-box-shadow: 4px 0px 5px 1px rgba(0, 0, 0, 0.50);
   -moz-box-shadow: 4px 0px 5px 1px rgba(0, 0, 0, 0.50);
   box-shadow: 2px 0px 2px 1px rgba(0, 0, 0, 0.50);
-  color: white;
-}
-
-.list-item:hover {
-  background-color: rgb(241, 103, 10);
 }
