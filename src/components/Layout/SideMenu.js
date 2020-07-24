@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './SideMenu.css'
 import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
@@ -9,20 +10,22 @@ import TemaPrincipal from '../../theme/temaPrincipal'
 import PeopleAlt from '@material-ui/icons/PeopleAlt';
 import Phone from '@material-ui/icons/Phone';
 import Event from '@material-ui/icons/Event';
+import { useHistory } from "react-router-dom"
 
-export default () => {
-
+export default (props) => {
+  let history = useHistory();
   const contatosHandler = () => {
-    alert('Mostrar Crud contatos');
+    history.push("/");
   }
 
   const telefonesHandler = () => {
-    alert('Mostrar crud telefones');
+    history.push('/telefones');
   }
 
   const compromissosHandler = () => {
-    alert('Mostrar crud Compromissos');
+    history.push('/compromissos')
   }
+
 
 
   return (
@@ -53,8 +56,6 @@ export default () => {
           </ListItemIcon>
           <ListItemText primary="Compromissos" />
         </ListItem>
-
-
       </List>
 
     </div>
