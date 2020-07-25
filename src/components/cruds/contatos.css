@@ -11,4 +11,8 @@
 
 .material-table {
   display: flex;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 65vh;
+  margin-top: 5px;
 }
