@@ -11,6 +11,7 @@ const inserirContato = (contato: Contato) => {
 
 const listarContatos = () => {
   const contatosDb = localStorage['contatos'] !== undefined ? JSON.parse(localStorage['contatos']) : [];
+  contatosDb.sort((a, b) => { return b.id - a.id });
   return contatosDb;
 }
 
