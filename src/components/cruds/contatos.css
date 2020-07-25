@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.material-table {
+  display: flex;
+}

@@ -26,8 +26,6 @@ export default (props) => {
     history.push('/compromissos')
   }
 
-
-
   return (
     <div className='side-menu'>
       <List style={{ height: '100vh', backgroundColor: TemaPrincipal.palette.primary.dark }}
