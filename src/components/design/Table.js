@@ -9,6 +9,7 @@ import CONTATOS_REDUCER_TYPES from '../../store/reducers/contatosRecuderTypes';
 export default (props) => {
 
   let dados = useSelector(state => state.contatosReducers.contatos)
+  dados.sort((a, b) => { return b.id - a.id })
   const dispatch = useDispatch();
   const columns = props.columns;
 
