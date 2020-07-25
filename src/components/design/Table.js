@@ -15,7 +15,7 @@ export default (props) => {
 
   return (
     <MaterialTable style={{ width: '100%' }} icons={tableIcons}
-      title="Editable Preview"
+      title="Lista de contatos"
       columns={columns}
       data={dados}
       editable={{
