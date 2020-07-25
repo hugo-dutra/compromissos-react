@@ -1,25 +1,5 @@
 import Contato from "../models/contato.model"
-const METODOS = {
-  POST: 'POST',
-  GET: 'GET',
-  UPDATE: 'UPDATE',
-  DELETE: 'DELETE'
-}
-
-export default (contato: Contato, metodo: String): any => {
-  switch (metodo) {
-    case METODOS.POST:
-      return inserirContato(contato);
-    case METODOS.GET:
-      return listarContatos();
-    case METODOS.DELETE:
-      return excluirContato(contato);
-    case METODOS.UPDATE:
-      return alterarContato(contato);
-    default:
-      break;
-  }
-}
+import VERBOS from '../ENUMS/verbos.http'
 
 const inserirContato = (contato: Contato) => {
   console.log(contato);
@@ -48,6 +28,25 @@ const alterarContato = (contato: Contato) => {
   contatosDb[idx] = contato;
   localStorage['contatos'] = JSON.stringify(contatosDb);
 }
+
+
+
+export default (contato: Contato, metodo: String): any => {
+  switch (metodo) {
+    case VERBOS.POST:
+      return inserirContato(contato);
+    case VERBOS.GET:
+      return listarContatos();
+    case VERBOS.DELETE:
+      return excluirContato(contato);
+    case VERBOS.UPDATE:
+      return alterarContato(contato);
+    default:
+      break;
+  }
+}
+
+
 
 
 

@@ -1,17 +1,19 @@
 import contatoService from '../../services/contato.service';
+import VERBOS from '../../ENUMS/verbos.http'
+import CONTATOS_REDUCER_TYPES from './contatosRecuderTypes'
 
 const INITIAL_STATE = {
-  contatos: contatoService({}, 'GET')
+  contatos: contatoService({}, VERBOS.GET)
 }
 
 const contatoReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'ADD_CONTATO':
+    case CONTATOS_REDUCER_TYPES.ADD_CONTATO:
       return {
         ...state,
         contatos: [...state.contatos, action.contato]
       }
-    case 'EDIT_CONTATO':
+    case CONTATOS_REDUCER_TYPES.EDIT_CONTATO:
       const idx = state.contatos.findIndex(obj => obj.id === action.contato.id)
       return {
         ...state,
@@ -22,7 +24,7 @@ const contatoReducer = (state = INITIAL_STATE, action) => {
           return contato;
         })
       }
-    case 'DEL_CONTATO':
+    case CONTATOS_REDUCER_TYPES.DEL_CONTATO:
       return {
         ...state,
         contatos: [...action.contato]

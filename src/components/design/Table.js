@@ -3,6 +3,8 @@ import MaterialTable from 'material-table';
 import contatoService from '../../services/contato.service';
 import tableIcons from './table.icons'
 import { useSelector, useDispatch } from 'react-redux';
+import VERBOS from '../../ENUMS/verbos.http'
+import CONTATOS_REDUCER_TYPES from '../../store/reducers/contatosRecuderTypes';
 
 export default (props) => {
 
@@ -19,13 +21,13 @@ export default (props) => {
         onRowAdd: newData =>
           new Promise((resolve, reject) => {
             newData['id'] = +new Date();
-            dispatch({ type: 'ADD_CONTATO', contato: newData })
+            dispatch({ type: CONTATOS_REDUCER_TYPES.ADD_CONTATO, contato: newData })
             resolve();
           }),
         onRowUpdate: (newData, oldData) =>
           new Promise((resolve, reject) => {
-            contatoService(newData, 'UPDATE');
-            dispatch({ type: 'EDIT_CONTATO', contato: newData })
+            contatoService(newData, VERBOS.UPDATE);
+            dispatch({ type: CONTATOS_REDUCER_TYPES.EDIT_CONTATO, contato: newData })
             resolve()
           }),
         onRowDelete: oldData =>
@@ -33,8 +35,8 @@ export default (props) => {
             const dadosAntigos = [...dados];
             const index = oldData.tableData.id;
             dadosAntigos.splice(index, 1);
-            contatoService(oldData, 'DELETE');
-            dispatch({ type: 'DEL_CONTATO', contato: dadosAntigos })
+            contatoService(oldData, VERBOS.DELETE);
+            dispatch({ type: CONTATOS_REDUCER_TYPES.DEL_CONTATO, contato: dadosAntigos })
             resolve()
           }),
       }}

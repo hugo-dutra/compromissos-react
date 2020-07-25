@@ -1,10 +1,11 @@
 import React from 'react';
 import * as Material from '@material-ui/core';
 import Contato from '../../models/contato.model';
-import contatoService  from '../../services/contato.service';
+import contatoService from '../../services/contato.service';
 import './contatos.css'
 import Table from '../design/Table';
 import { useDispatch } from 'react-redux';
+import VERBOS from '../../ENUMS/verbos.http'
 const M = Material;
 
 
@@ -16,7 +17,7 @@ export default () => {
 
     contato.id = +new Date();
     const novoContato = { id: contato.id, nome: contato.nome, nascimento: contato.nascimento, email: contato.email };
-    contatoService(novoContato,'POST');
+    contatoService(novoContato, VERBOS.POST);
     dispatch({ type: 'ADD_CONTATO', contato: novoContato });
 
   }
