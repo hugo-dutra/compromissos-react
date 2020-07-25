@@ -1,24 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as Material from '@material-ui/core';
 import Contato from '../../models/contato.model';
+import contatoService  from '../../services/contato.service';
 import './contatos.css'
 import Table from '../design/Table';
+import { useDispatch } from 'react-redux';
 const M = Material;
-const contato = new Contato();
+
 
 export default () => {
-  const [dados, setDados] = useState([])
+  const dispatch = useDispatch()
+  const contato = new Contato();
 
   const adicionarContato = () => {
+
     contato.id = +new Date();
-    const tempDados = dados;
-    tempDados.push({ id: contato.id, nome: contato.nome, nascimento: contato.nascimento, email: contato.email });
-    setDados(tempDados)
-    console.log(dados);
+    const novoContato = { id: contato.id, nome: contato.nome, nascimento: contato.nascimento, email: contato.email };
+    contatoService(novoContato,'POST');
+    dispatch({ type: 'ADD_CONTATO', contato: novoContato });
+
   }
 
   const colunas = [
-    { title: 'Id', field: 'id' },
+    { title: 'Id', field: 'id', hidden: true },
     { title: 'Nome', field: 'nome' },
     { title: 'Nascimento', field: 'nascimento' },
     { title: 'Email', field: 'email' },
@@ -34,7 +38,7 @@ export default () => {
         <M.Button style={{ marginTop: '5px' }} onClick={adicionarContato} variant="contained" color="primary">Novo contato</M.Button>
       </div>
       <div className="material-table">
-        <Table atualizarTabela={adicionarContato} columns={colunas} data={dados}></Table>
+        <Table atualizarTabela={adicionarContato} columns={colunas}></Table>
       </div>
     </div>
   )
